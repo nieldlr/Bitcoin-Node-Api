@@ -2,7 +2,7 @@
   "name": "bitcoin-node-api",
 	"author": "Niel de la Rouviere",
 	"description": "Bitcoin-Node-Api is an Express middleware plugin that exposes URLs for quick development and interfacing with a bitcoind Bitcoin wallet.",
-  "version": "0.1.0",
+  "version": "0.1.1",
 	"main": "lib/api.js",
 	"repository" : {
 		"type": "git",

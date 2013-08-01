@@ -119,7 +119,7 @@ app.use('/bitcoin/api', bitcoinapi.app);
 
 ### .setAccces(type, accesslist);
 
-The .setAccess method controls the access to the urls. By default all commands are accessible. The methods takes two parameters: type (string) and accesslist (array). To restrict access there are two ways to do this:
+The .setAccess method controls the access to the urls. By default all commands are accessible. The method takes two parameters: type (string) and accesslist (array). To restrict access there are two ways to do this:
 
 #### 'only'
 
@@ -138,12 +138,24 @@ The 'restrict' type prevents methods from being accessed.
 bitcoinapi.setAccess('restrict', ['dumpprivkey', 'sendmany']);
 ```
 
+### Access Profiles
+
+Bitcoin-Node-Api has predefined access profiles to make it easy to set up.
+
 #### 'default-safe'
 
-This is an access profile. It prevents 'dumpprivkey' and 'walletpassphrasechange' being accessed. This prevents potential theft.
+It prevents 'dumpprivkey' and 'walletpassphrasechange' being accessed. This prevents potential theft. Also removes the 'stop' command to prevent someone from stopping the server.
 
 ```javascript
 bitcoinapi.setAccess('default-safe');
+```
+
+#### 'read-only'
+
+This profile only exposes methods that show information. No methods that can send/alter the wallet are exposed.
+
+```javascript
+bitcoinapi.setAccess('read-only');
 ```
 
 ## Projects
@@ -151,6 +163,8 @@ bitcoinapi.setAccess('default-safe');
 Bitcoin-Node-Api is used in the following projects:
 
 * [Min.io](http://min.io)
+
+If you use Bitcoin-Node-Api in your projects submit a pull request to the readme with a link or send me an email: niel@delarouviere.com
 
 # Licence
 
